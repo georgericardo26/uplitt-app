@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+    nginx:
+        volumes:
+            - static_volume:/code/server/static
+        depends_on:
+            - backend_api
+            
+    backend_api:
+        build: ./server
+        command: bash -c "cd server && 
+                          python manage.py migrate && 
+                          uwsgi --socket :8001 --module uplitt_server.wsgi --py-autoreload=1"
+        container_name: server
+        environment:
+            SETTINGS_ENV: uplitt_server.settings.base
+        volumes:
+            - .:/code
+            - static_volume:/code/server/static
+        expose:
+            - "80"
+        restart: "on-failure"
+        depends_on:
+            - db_postgres
+
+    db_postgres:
+        # image: postgres
+        image: kartoza/postgis
+        container_name: postgres_db_api
+        environment:
+            POSTGRES_USER: uplitt_user
+            POSTGRES_DB: uplitt
+            POSTGRES_PASSWORD: uplitt_user
+        volumes:
+            - db_data_api:/var/lib/postgresql/data/
+        ports:
+            - "5432:5432"
+
+volumes:
+    db_data_api:
+    static_volume:

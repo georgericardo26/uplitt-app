@@ -1,0 +1,44 @@
+Requirements:
+Application will mainly have 3 user roles
+Admin
+Sellerss
+Buyer
+
+Seller Side:
+1. The seller should be able to sign up using the mobile app or web based platform.
+    The sign up process needs to be simple and collect base information that we don’t expect to change over time.
+    After registration, the seller can make two profiles. One for the seller( can include address, phone number,
+    social security and payment details) and the other for the virtual shop ( name, menu, timings, prices).
+    Upon signing up, account confirmation and on boarding process should be emailed to the seller. The seller only
+    becomes active on the app once admin activates their status. We may also require them to sign contracts and upload
+    files.
+
+2. On the seller side app, sellers should be able to upload their food items for sale. They will be required to add all
+    the ingredients used, and check mark basic questions related to food allergies, halal/kosher certification etc.
+    They could be multiple. They can set prices, as well as upload pictures of the food items. Furthermore we will allow
+    them to upload a custom logo of their home restaurant. Each food item on the menu can also have options that a buyer
+    can customize.
+
+3. The seller will also have a dashboard that shows them their order history and financial updates.
+4. The seller app should be able to set the availability status of a food item, after it has been uploaded.
+5. The seller app would also be able to show pop notifications for order confirmation. Order confirmation will be
+    required once a buyer places an order as well as tracking info.
+
+
+Buyer Side:
+1. The buyer should be able to sign up in an easy way through mobile app or web based platform. Upon registration we want
+    to capture minimum information to make the process simple. They will also be required to add payment information and
+    account confirmation will be required before their activation.
+2. Once active, the buyer should be able to see nearby food items on sale, as well as search for specific food items.
+3. They should be able to view the Seller’s reviews and details about a food item (like ingredients, checks and price). The buyer can also add a review
+4. They should be able to add food items to cart
+5. They should be able to check out using registered payment info. While doing that, they should be given the option to leave a tip.
+6. Once an order is placed, it will wait for confirmation from the seller before showing a confirmed status to the buyer.
+7. The app should give a pick up option and a delivery option.
+General Requirements:
+1. Integration of payment platforms like square/strip. Integration of Google maps and search ability within a geolocation.
+3. A dash board on the admin side to see restaurant related info. E.g. reviews, income, food items, order history etc.
+4. Admins should have the ability to activate/suspend/delist sellers
+5. Sign up with google/fb etc should be an option especially for buyer
+6. Buyer order history should be saved for future data analytics
+7. Integration of delivery api like postmates.

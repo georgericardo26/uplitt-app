@@ -1,0 +1,11 @@
+# specifc files
+.env
+
+
+# directories
+env/
+
+#all hidden without gitignore
+.*
+!.gitignore
+!.gitlab-ci.yml

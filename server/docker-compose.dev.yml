@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+    nginx:
+        volumes:
+            - static_volume:/code/server/static
+        depends_on:
+            - backend_api
+
+    backend_api:
+        build: ./server
+        command: bash -c "cd server && 
+                          python manage.py collectstatic --noinput &&
+                          python manage.py migrate && 
+                          uwsgi --socket :8001 --module uplitt_server.wsgi"
+        container_name: server
+        env_file: 
+            server/.env
+        volumes:
+            - .:/code
+            - static_volume:/code/server/static
+        expose:
+            - "80"
+        restart: "on-failure"
+
+volumes:
+    static_volume:

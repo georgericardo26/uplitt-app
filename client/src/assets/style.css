@@ -1,0 +1,918 @@
+/* RESET RULES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+:root {
+  --page-header-bgColor: #242e42;
+  --page-header-bgColor-hover: #1d2636;
+  --page-header-txtColor: #dde9f8;
+  --page-header-headingColor: #7889a4;
+  --page-header-width: 220px;
+  --page-content-bgColor: #f0f1f6;
+  --page-content-txtColor: #171616;
+  --page-content-blockColor: #fff;
+  --white: #fff;
+  --grey: #bfbfbf;
+  --grey-strong: #5f5f5f;
+  --light-grey: #efeeee;
+  /* --black: #707070; */
+  --blue: #00b9eb;
+  --orange: #f28157;
+  --red: #bf452a;
+  --purple: #f2ccc9;
+  --green: #03e264;
+  --strong-green: rgb(8, 166, 77);
+  --light-green: rgba(8, 166, 77, 0.3);
+  --border-radius: 4px;
+  --box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.075);
+}
+h1, h2, h3, h4, h5, p, span, table {
+  font-family: 'Montserrat', sans-serif;
+}
+h1 {
+  font-weight: 700;
+}
+h2 {
+  font-weight: 600;
+}
+p {
+  font-weight: 400;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a,
+button {
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  cursor: pointer;
+}
+
+input {
+  -webkit-appearance: none;
+}
+
+button,
+input {
+  border: none;
+}
+
+svg {
+  display: block;
+}
+
+body {
+  font: 16px/1.5 "Lato", sans-serif;
+}
+
+/* COMPONENTS ISOLATED
+------------------------------------------------- */
+.response-error {
+  margin-bottom: 15px;
+}
+
+.response-error .alert {
+  position: relative!important;
+  margin: 0 auto;
+  padding: 20px!important;
+  margin-bottom: 10px;
+}
+.uptlit-font {
+  font-family: 'Pacifico', cursive;
+}
+
+/* TOP-BAR 
+------------------------------------------------- */
+.top-bar {
+    background-color: var(--green);
+    color: var(--white);
+    position: fixed;
+    top: 0;
+    height: 54px;
+    z-index: 9999999;
+    width: 100%;
+}
+.top-bar .logo {
+  width: 300px;
+  position: relative;
+}
+.top-bar .logo a {
+  font-family: 'Pacifico', cursive;
+  font-size: 30px;
+  color: var(--white);
+  text-decoration: none;
+  margin-top: -5px;
+}
+.search-area {
+    padding: 8px 0;
+    text-align: center;
+}
+.search-area .input-search {
+    width: 400px;
+    background-color: #fff;
+    height: 30px;
+    border-radius: 20px 20px;
+    display: inline-block;
+    padding: 20px;
+
+    background-image: url('./img/searchicon.png');
+    background-position: right;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+}
+.search-area .input-search::placeholder {
+    font-size: 9px;
+}
+
+.search-area .input-search:focus {
+    border: none;
+    outline: none;
+}
+
+.profile-menu {
+  display: flex; 
+  justify-content: flex-end;
+  margin: 10px 30px;
+}
+.profile-menu .profile-img {
+  background-color: var(--white);
+  overflow: hidden;
+  width: 35px;
+  height: 35px;
+  position: relative;
+  margin: 0px 10px;
+  border-radius: 50%;
+}
+.profile-menu .profile-img img {
+  position: relative;
+  width: 100%;
+}
+.profile-menu .profile-name {
+  margin: 3px 20px;
+}
+.profile-menu .profile-name button {
+  font-weight: bolder;
+  font-size: 15px;
+}
+.profile-menu .profile-name button::after {
+  content: url('../assets/img/arrow.png');
+  transform: scale(.5);
+  position: absolute;
+  margin: auto 20px;
+}
+/* .profile-menu a {
+  display: inline-block;
+  width: 82px;
+  text-align: center;
+  padding: 2px 0px;
+  background-color: var(--white);
+  color: var(--strong-green);
+  border-radius: 11px;
+  margin: 5px 4px;
+  text-decoration: none;
+} */
+
+
+/* HEADER STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+  .page-header {
+    top: 66px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    padding-top: 20px;
+    width: var(--page-header-width);
+    color: var(--page-header-txtColor);
+    background: var(--white);
+    position: fixed;
+  }
+  
+  .page-header nav {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+  
+  .page-header .logo {
+    display: block;
+    max-width: 120px;
+    margin: 0 15px;
+  }
+  
+  .page-header .toggle-mob-menu {
+    display: none;
+    margin-left: 5px;
+    padding: 4px;
+    background: var(--page-content-blockColor);
+    border-radius: var(--border-radius);
+  }
+  
+  /* .page-header .toggle-mob-menu svg {
+    fill: var(--black);
+    transition: transform 0.2s;
+  } */
+  
+  .page-header .admin-menu {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-top: 35px;
+    margin: 0 auto;
+  }
+  
+  .page-header .admin-menu li > * {
+    width: 96.72px;
+    padding: 7px 15px;
+    display: flex;
+  }
+  .page-header .admin-menu li {
+    margin: 0 auto;
+  }
+  .page-header .admin-menu li a span:nth-of-type(1) {
+    margin: -1px 4px;
+  }
+  .page-header .admin-menu .menu-heading h3 {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 12px;
+    margin-top: 12px;
+    color: var(--page-header-headingColor);
+  }
+  .page-header .admin-menu a {
+    font-size: 0.9rem;
+    background-color: var(--light-grey);
+    border-radius: 8px;
+    margin: 5px 0px;
+    font-size: 11px;
+    text-align: center;
+    padding: 4px 14px;
+    text-decoration: none;
+    color: var(--grey-strong);
+  }
+  .page-header .admin-menu a:hover {
+    background-color: var(--light-green);
+    color: var(--strong-green)!important;
+  }
+  .header-image {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 50%;
+    border: solid 1px #1d2636;
+  }
+  .header-image img {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /* PAGE CONTENT 
+  ----------------------------------------------- */
+  .page-content {
+    position: relative;
+    left: var(--page-header-width);
+    width: calc(100% - var(--page-header-width));
+    min-height: 100vh;
+    padding: 30px;
+    background: var(--white);
+  }
+  
+  /* WELCOME PAGE
+  ---------------------------------------------- */
+  .welcome-page { 
+    background: url(img/background_welcome.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+  }
+  .singup-in-links {
+    display: flex; justify-content: flex-end  
+  }
+  .singup-in-links a {
+    display: inline-block;
+    width: 82px;
+    text-align: center;
+    padding: 2px 0px;
+    background-color: var(--white);
+    color: var(--strong-green);
+    border-radius: 11px;
+    margin: 5px 4px;
+    text-decoration: none;
+  }
+
+  /* SIGN UP PAGE 
+  ----------------------------------------------- */
+  .sign-up-page {
+    padding: 90px 0px;
+    width: 23vw;
+    margin: 0 auto;
+  }
+  .sign-up-page .form-content .title-content {
+    border-bottom: solid 1px var(--grey);
+    margin-bottom: 15px;
+  }
+  .sign-up-page .form-content .title-content h1{
+    text-align: center;
+    font-weight: bold;
+    color: var(--strong-green);
+  }
+  .sign-up-page .form-content .sign-up-form {
+    padding: 20px;
+  }
+  .sign-up-page .form-content .sign-up-form .form-group {
+    margin-bottom: 2rem;
+  }
+  .sign-up-page .form-content .sign-up-form .form-group .form-control {
+    background: var(--light-grey);
+    border: none;
+    border-radius: 20px;
+    margin-top: 20px;
+    height: 60px;
+  }
+
+  .sign-up-page .form-content .sign-up-form .sign-up-button {
+    display: block;
+    width: 100%;
+    background-color: var(--strong-green);
+    color: var(--white);
+    border-radius: 20px;
+    height: 60px;
+  }
+
+  /* SIGNUP SUCCESS PAGE 
+  ---------------------------------------------------------- */
+
+  .register-success-page { 
+    background-color: var(--white);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 98;
+  }
+  .register-success-page .wrap {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 99;
+    text-align: center;
+  }
+  .register-success-page .title-content {
+    margin: 130px auto 30px auto;
+  }
+  .register-success-page .confirmation-message {
+    padding: 30px 0px;
+    border-top: solid 1px var(--grey);
+    border-bottom: solid 1px var(--grey);
+    width: 350px;
+    margin: 0 auto;
+  }
+  .register-success-page .confirmation-message p, span{
+    font-weight: 600!important;
+    color: var(--black);
+  }
+  .register-success-page .confirmation-message span{
+    text-decoration: underline var(--black);
+  }
+  .register-success-page .title-content h1 {
+    font-weight: bolder;
+    font-size: 25px;
+    color: var(--strong-green);
+  }
+  .register-success-page .title-content .sign-in-button {
+    margin: 20px auto;
+    background-color: var(--strong-green);
+    color: var(--white);
+  }
+
+  /* ADD RESTAURANT
+  ----------------------------------------------- */
+
+  .add-restaurant-area {
+     padding: 90px 0px;
+     width: 40vw;
+     margin: 0 auto;
+  }
+
+  .welcome-uplit {
+    margin: 0 auto;
+    width: 35vw;
+    text-align: center;
+    margin-top: 150px;
+  }
+  .welcome-uplit .message-welcome h1{
+    color: var(--green)
+  }
+  .welcome-uplit .message-welcome {
+    margin: 40px auto;
+  }
+  .welcome-uplit .second-message {
+    margin: 40px auto;
+  }
+  .welcome-uplit .second-message p{
+    color: var(--green);
+    font-size: 12px;
+  }
+  .welcome-uplit .message-welcome .uptlit-font{
+    color: var(--strong-green);
+  }
+  .welcome-uplit .add-restaurant {
+    display: block;
+    width: 200px;
+    background-color: var(--strong-green);
+    border-radius: 20px;
+    margin: 0 auto;
+  }
+  .welcome-uplit .add-restaurant button {
+    height: 40px;
+   
+    color: var(--white);
+    border-radius: 20px;
+  }
+
+  .add-restaurant-area .title-content h1{
+    text-align: center;
+    color: var(--green);
+  }
+  .add-restaurant-area .form-control {
+    background: var(--light-grey);
+    border: none;
+    border-radius: 20px;
+    margin-top: 20px;
+    height: 60px;
+  }
+  .add-restaurant-button {
+    display: block;
+    width: 100%;
+    background-color: var(--strong-green);
+    color: var(--white);
+    border-radius: 20px;
+    height: 60px;
+}
+
+/* MENU
+----------------------------------------------- */
+
+  /* .sign-up-page .form-content .title-content {
+    border-bottom: solid 1px var(--grey);
+    margin-bottom: 15px;
+  }
+  .sign-up-page .form-content .title-content h1{
+    text-align: center;
+    font-weight: bold;
+    color: var(--strong-green);
+  } */
+  .menu-area .title-area {
+    margin-top: 7vw;
+    margin-bottom: 7vw;
+  }
+  .menu-area .title-area h1{
+    text-align: center;
+    font-weight: 600;
+    font-size: 32px;
+    color: var(--grey-strong);
+  }
+  .menu-area .button-area .button-column {
+    padding: 0vw 5vw;
+  }
+  .menu-area .button-area .button-column a {
+    background-color: var(--light-green);
+    color: var(--grey-strong);
+    margin: 0 auto;
+    width: 100%;
+    height: 60px;
+    padding: 0.6vw;
+    display: block;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1.8vw;
+    text-decoration: none;
+  }
+  .menu-area .categories-area .food-item-table {
+    margin-top: 30px;
+    border-collapse: collapse;
+    width: 100%;
+    /* border: 1px solid #ddd; */
+  }
+  .menu-area .categories-area .food-item-table th {
+    color: var(--grey);
+    font-weight: 400;
+    text-decoration: underline;
+    text-align: center;
+  }
+  .menu-area .categories-area .food-item-table td span {
+    /* float: left; */
+
+    /* padding: 0px 12px; */
+  }
+  .menu-area .categories-area .food-item-table .category-name {
+    margin-bottom: 0px;
+    position: absolute;
+  }
+  .menu-area .categories-area .food-item-table .category-name h3 {
+    white-space:nowrap;
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--grey-strong)
+  }
+  .menu-area .categories-area .food-item-table th, td {
+    padding: 10px 7px;
+    max-width:100%;
+    /* white-space:nowrap; */
+  }
+  .menu-area .categories-area .food-item-table ul {
+    padding: 0;
+    margin: 0;
+  }
+  .menu-area .categories-area .food-item-table ul li {
+    padding: 3px;
+    display: inline-block;
+  }
+  .menu-area .categories-area .food-item-table td:nth-child(3) {
+    max-width: 21vw!important;
+  }
+  .food-item-table td img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  } 
+
+  /* .menu-area .categories-area .food-item-table tr {
+    font-weight: 300;
+    font-size: 17px;
+  } */
+
+  /* .menu-area .categories-area .food-item-table tr.header, .food-item-table tr:hover {
+    background-color: rgba(36, 131, 198, 0.4);
+    color: #fff;
+  } */
+
+
+
+  .not-have-menu {
+    /* margin: 0 auto; */
+    /* width: 45vw; */
+    text-align: center;
+    margin-top: 150px;
+  }
+
+  .not-have-menu .not-have-menu-area {
+    background-image: url('./img/dont-have-menu.png');
+    background-position: right;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 30vw;
+    width: 30vw;
+    margin: 0 auto;
+    /* background-position: 10px 10px;
+    background-repeat: no-repeat; */
+  }
+
+  .not-have-menu .not-have-menu-area .message {
+    float: left;
+    width: 16vw;
+    margin-top: 6vw;
+  }
+  
+  .not-have-menu .not-have-menu-area .message p {
+    color: var(--strong-green);
+    font-size: 1.3vw;
+    font-weight: bolder;
+  }
+
+  .not-have-menu .not-have-menu-area .add-menu {
+    float: left;
+    width: 20vw;
+    margin-top: 3.5vw;
+  }
+  .not-have-menu .not-have-menu-area .add-menu button {
+    font-size: 2.6vw;
+  }
+
+/* FOOD ITEM CATEGORY
+----------------------------------------------- */
+
+.category-page {
+  padding: 90px 0px;
+  width: 40vw;
+  margin: 0 auto;
+}
+.category-page .form-content .title-content {
+  margin-bottom: 25px;
+}
+.category-page .form-content .title-content h1{
+  text-align: center;
+  font-weight: 400;
+  font-size: 23px;
+  color: var(--strong-green);
+}
+.category-page .form-content .category-form {
+  padding: 20px;
+}
+.category-page .form-content .category-form .form-group .form-section label {
+  text-align: right;
+  display: inline-block;
+}
+
+
+
+.category-page .form-content .category-form .form-group .form-section {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-gap: 5px;
+  margin-bottom: 20px;
+}
+.category-page .form-content .category-form .form-group .form-section label { 
+  text-align:right; 
+  margin-top: 10px;
+  width: 100px;
+  margin-left: -40px;
+}
+
+
+/* .category-page .form-content .category-form .form-group .form-section input {
+  float: right;
+  display: block;
+} */
+.category-page .form-content .category-form .form-group {
+  margin-bottom: 2rem;
+}
+.category-page .form-content .category-form .form-group .form-control {
+  background: var(--light-grey);
+  border: none;
+  border-radius: 10px;
+  height: 50px;
+  width: 26vw;
+}
+.category-page .form-content .category-form .form-group .text-description {
+  height: 120px;
+}
+
+.category-page .form-content .category-form .category-button {
+  display: block;
+  width: 100%;
+  background-color: var(--strong-green);
+  color: var(--white);
+  border-radius: 10px;
+  height: 40px;
+}
+
+.category-page .form-content .category-form .get-back {
+  display: block;
+  width: 100%;
+  background-color: var(--red);
+  color: var(--white);
+  border-radius: 10px;
+  height: 40px;
+}
+
+/* FOOD ITEM
+----------------------------------------------- */
+.food-item-page {
+  padding: 90px 0px;
+  width: 40vw;
+  margin: 0 auto;
+}
+.food-item-page .form-content .title-content {
+  margin-bottom: 25px;
+}
+.food-item-page .form-content .title-content h1{
+  text-align: center;
+  font-weight: 400;
+  font-size: 23px;
+  color: var(--strong-green);
+}
+.food-item-page .form-content .food-item-form {
+  padding: 20px;
+}
+.food-item-page .form-content .food-item-form .form-group .form-section label {
+  text-align: right;
+  display: inline-block;
+}
+.food-item-page .form-content .food-item-form .form-group .form-section {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-gap: 5px;
+  margin-bottom: 20px;
+}
+.food-item-page .form-content .food-item-form .form-group .form-section label { 
+  text-align:right; 
+  margin-top: 10px;
+  width: 100px;
+  margin-left: -40px;
+}
+.food-item-page .form-content .food-item-form .form-group {
+  margin-bottom: 2rem;
+}
+.food-item-page .text-description {
+  height: 120px!important;
+}
+/* .food-item-page .form-content .food-item-form .product-description {
+  height: 120px;
+} */
+.food-item-page .form-content .food-item-form .form-group .form-control {
+  background: var(--light-grey);
+  border: none;
+  border-radius: 10px;
+  height: 50px;
+  width: 26vw;
+}
+.food-item-page .form-content .food-item-form .form-group select {
+  width: 26vw;
+  background: var(--light-grey);
+  border: none;
+  border-radius: 10px;
+  height: 50px;
+  color: var(--grey-strong);
+}
+
+.food-item-page .form-content .food-item-form .food-item-button {
+  display: block;
+  width: 100%;
+  background-color: var(--strong-green);
+  color: var(--white);
+  border-radius: 10px;
+  height: 40px;
+}
+
+.food-item-page .form-content .food-item-form .get-back {
+  display: block;
+  width: 100%;
+  background-color: var(--red);
+  color: var(--white);
+  border-radius: 10px;
+  height: 40px;
+}
+
+.food-item-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.food-item-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 25px;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.food-item-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.food-item-container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.food-item-container input:checked ~ .checkmark:after {
+  display: block;
+}
+.tags .food-item-container {
+  margin-left: 0px!important;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 8px;
+  top: 3px;
+  width: 8px;
+  height: 13px;
+  border: solid white;
+  border-width: 0px 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} */
+
+/* Hide the browser's default checkbox */
+/* .container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+} */
+
+/* Create a custom checkbox */
+/* .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+} */
+
+/* On mouse-over, add a grey background color */
+/* .container:hover input ~ .checkmark {
+  background-color: #ccc;
+} */
+
+/* When the checkbox is checked, add a blue background */
+/* .container input:checked ~ .checkmark {
+  background-color: #2196F3;
+} */
+
+/* Create the checkmark/indicator (hidden when not checked) */
+/* .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+} */
+
+/* Show the checkmark when checked */
+/* .container input:checked ~ .checkmark:after {
+  display: block;
+} */
+
+/* Style the checkmark/indicator */
+/* .container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+} */
