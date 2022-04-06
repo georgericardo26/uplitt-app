@@ -46,3 +46,4 @@ Make sure you already has docker and docker-compose installed.
 After, you will init the container service:
 
     `sudo docker-compose up`
+ 
