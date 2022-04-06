@@ -1,6 +1,8 @@
 # Uplitt App
+![](https://uplitt-app.s3.amazonaws.com/screen.jpeg "Screen")
 
-Uplitt App with the server and client sides.
+
+Uplitt app is an application for restaurant which consists in the dashboard for sellers and backend api.
 
 Tools
 ------------
